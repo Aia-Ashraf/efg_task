@@ -19,22 +19,24 @@ class _ProductDetailsState extends State<ProductDetails> {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
+          centerTitle: true,
+          leading: GestureDetector(
+              onTap: () => Navigator.pop(context),
+              child: Icon(
+                (Icons.arrow_back),
+                color: Colors.black,
+              )),
+
+          actions: [
+            Image.asset("assets/ic_shopping.png"),
+          ],
           // Here we take the value from the MyHomePage object that was created by
           // the App.build method, and use it to set our appbar title.
-          title:
-             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                GestureDetector(onTap:()=> Navigator.pop(context),child: Icon((Icons.arrow_back),color: Colors.black,)),
-                Text(
-                  "product details",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.black),
-                ),
-                Image.asset("assets/ic_shopping.png"),
-              ],
-            ),
-
+          title: Text(
+            "product details",
+            textAlign: TextAlign.center,
+            style: TextStyle(color: Colors.black),
+          ),
         ),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -85,7 +87,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                       fontSize: 16),
                 )),
                 height: 50,
-                width: MediaQuery.of(context).size.width/1.2,
+                width: MediaQuery.of(context).size.width / 1.2,
                 margin: EdgeInsets.all(15),
                 decoration: BoxDecoration(
                   gradient: LinearGradient(

@@ -41,20 +41,16 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.transparent, elevation: 0,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        centerTitle: true,
+        actions: [Image.asset("assets/ic_shopping.png")],
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Container(),
-            Text(
-              widget.title,
-              textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.black),
-            ),
-            Image.asset("assets/ic_shopping.png")
-          ],
+        title: Text(
+          widget.title,
+          textAlign: TextAlign.center,
+          style: TextStyle(color: Colors.black),
         ),
       ),
       body: FutureBuilder<List<ShoppingModel>>(
@@ -83,7 +79,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                         MediaQuery.of(context).size.width / 1.5,
                                     child: Text(
                                       'Entry ${snapshot.data[index].category}',
-                                      style: TextStyle(fontSize: 16,
+                                      style: TextStyle(
+                                          fontSize: 16,
                                           fontWeight: FontWeight.bold),
                                     ),
                                   ),
@@ -110,23 +107,35 @@ class _MyHomePageState extends State<MyHomePage> {
                                               ),
                                             ),
                                             child: Padding(
-                                              padding: const EdgeInsets.all(5.0),
+                                              padding:
+                                                  const EdgeInsets.all(5.0),
                                               child: Row(
                                                 children: [
-                                                  Icon(Icons.favorite_border,color: Colors.white,),
-                                                  SizedBox(width: 5,),
-                                                  Icon(Icons.upload_outlined,color: Colors.white),
-                                                  SizedBox(width: 5,),
-
-                                                  Icon(Icons.more_vert,color: Colors.white),
+                                                  Icon(
+                                                    Icons.favorite_border,
+                                                    color: Colors.white,
+                                                  ),
+                                                  SizedBox(
+                                                    width: 5,
+                                                  ),
+                                                  Icon(Icons.upload_outlined,
+                                                      color: Colors.white),
+                                                  SizedBox(
+                                                    width: 5,
+                                                  ),
+                                                  Icon(Icons.more_vert,
+                                                      color: Colors.white),
                                                 ],
                                               ),
                                             ),
                                           ),
-                                          Text(r'$' +
-                                              snapshot.data[index].price
-                                                  .toString(),    style: TextStyle(
-                                              fontWeight: FontWeight.bold),),
+                                          Text(
+                                            r'$' +
+                                                snapshot.data[index].price
+                                                    .toString(),
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold),
+                                          ),
                                         ],
                                       ),
                                     ),
